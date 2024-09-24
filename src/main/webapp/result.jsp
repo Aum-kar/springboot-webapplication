@@ -8,8 +8,6 @@
 </head>
 <body>
     <h1>result</h1>
-    <p>Answer is: <%= session.getAttribute("sum") %></p>
-    <!-- Another way to print is below -->
     <p>Answer is: ${sum} </p>
 </body>
 </html>

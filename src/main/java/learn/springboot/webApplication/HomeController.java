@@ -2,8 +2,8 @@ package learn.springboot.webApplication;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 
@@ -16,21 +16,13 @@ public class HomeController {
         return "index.jsp";
     }
 
-
-    /*
-     * Accepting request by servelet way reply
-     * Please find the newer versions of project for
-     * code of accepting results in spring way
-     */
-
     @RequestMapping("result") 
-    public String add(HttpServletRequest req, HttpSession session) {
+    public String add(@RequestParam("num1") int n1, @RequestParam("num2") int n2, HttpSession session) {
         System.out.println("*******\nresult endpoint called\n*******");
 
-        int num1 = Integer.parseInt(req.getParameter("num1"));
-        int num2 = Integer.parseInt(req.getParameter("num2"));
+        int res = n1 + n2;
 
-        session.setAttribute("sum", (num1+num2));
+        session.setAttribute("sum", (res));
 
         return "result.jsp";
     }
